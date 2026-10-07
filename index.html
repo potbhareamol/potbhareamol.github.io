@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Software Engineer Portfolio</title>
-    <script src="https://jsdelivr.net"></script>
+    <script src="https://cloudflare.com" async defer></script>
     <style>
         :root {
             --bg-primary: #0f172a;
@@ -316,7 +316,7 @@
     <header>
         <div class="container">
             <nav>
-                <a href="#" class="logo">DevPortfolio</a>
+                <a href="#" class="logo">Amol Potbhare</a>
                 <div class="nav-right">
                     <ul class="nav-links">
                         <li><a href="#about">About</a></li>
@@ -361,3 +361,111 @@
                     <h3><i data-lucide="layout"></i> Frontend</h3>
                     <ul>
                         <li>React.js (Hooks, Context)</li>
+                        <li>HTML5 & CSS3</li>
+                        <li>Tailwind CSS</li>
+                    </ul>
+                </div>
+                <div class="tech-card">
+                    <h3><i data-lucide="database"></i> System Design</h3>
+                    <ul>
+                        <li>SQL / PostgreSQL / MySQL</li>
+                        <li>Redis Caching</li>
+                        <li>Microservices Architecture</li>
+                        <li>Scalability & Partitioning</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3 class="project-title">Scalable TinyURL System</h3>
+                        <p class="project-desc">A highly available URL shortening service designed to handle millions of requests. Implemented distributed unique ID generation, a Bloom filter to prevent unnecessary database lookups, and Redis caching to keep redirection latency low.</p>
+                        <div class="project-tags">
+                            <span class="tag">Java</span>
+                            <span class="tag">Spring Boot</span>
+                            <span class="tag">Redis</span>
+                            <span class="tag">PostgreSQL</span>
+                            <span class="tag">React.js</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/potbhareamol/CaseManagement" class="btn btn-secondary btn-sm" target="_blank"><i data-lucide="github"></i> Architecture & Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3 class="project-title">Enterprise Case Management Platform</h3>
+                        <p class="project-desc">A full-stack workflow system enabling teams to log, track, and resolve operational cases. Built with a robust role-based access control (RBAC) security layer and an event-driven design to trigger email notifications upon case status modifications.</p>
+                        <div class="project-tags">
+                            <span class="tag">Spring Boot</span>
+                            <span class="tag">React.js</span>
+                            <span class="tag">Spring Security</span>
+                            <span class="tag">Hibernate</span>
+                            <span class="tag">MySQL</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com" class="btn btn-secondary btn-sm" target="_blank"><i data-lucide="github"></i> Codebase</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2 class="section-title">Connect With Me</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 1.5rem; max-width: 500px;">
+                I'm actively looking for opportunities in product-based companies. Let's discuss system design, backend architectures, or code quality.
+            </p>
+            <div class="contact-links">
+                <a href="https://github.com/potbhareamol" class="btn btn-primary" target="_blank">
+                    <i data-lucide="github"></i> GitHub Profile
+                </a>
+                <a href="https://www.linkedin.com/in/amol-potbhare/" class="btn btn-secondary" target="_blank">
+                    <i data-lucide="linkedin"></i> LinkedIn
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Developer Portfolio. Built for scale.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialise Icons
+        lucide.createIcons();
+
+        // Dark/Light Theme Logic
+        const themeBtn = document.getElementById('themeBtn');
+        const themeIcon = document.getElementById('themeIcon');
+        let currentTheme = localStorage.getItem('theme') || 'dark';
+
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        updateIcon(currentTheme);
+
+        themeBtn.addEventListener('click', () => {
+            currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            localStorage.setItem('theme', currentTheme);
+            updateIcon(currentTheme);
+        });
+
+        function updateIcon(theme) {
+            themeIcon.setAttribute('data-lucide', theme === 'dark' ? 'sun' : 'moon');
+            lucide.createIcons();
+        }
+    </script>
+</body>
+</html>
